@@ -1,0 +1,6 @@
+baseURL = 'cerbervs.github.io'
+languageCode = 'en-us'
+title = 'Cerbervs'
+theme = "m10c"
+[params]
+description = 'A collection of my poetry, copyright © 2024-present by Cerbervs'

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2024-08-17T12:45:29-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/my-moon/</loc>
+    <lastmod>2024-08-17T12:45:29-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2024-08-17T12:45:29-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/atlas-sky-reprise/</loc>
+    <lastmod>2024-08-17T12:41:40-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/if-youd-care-to-talk/</loc>
+    <lastmod>2024-08-17T12:40:16-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/thin-or-thinning-out/</loc>
+    <lastmod>2024-08-17T12:17:50-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/clutch/</loc>
+    <lastmod>2024-08-17T12:11:12-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
+  </url>
+</urlset>
