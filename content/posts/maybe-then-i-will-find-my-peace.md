@@ -1,10 +1,10 @@
 +++
-title = 'Maybe the I Will Find My Peace'
+title = 'Maybe Then I Will Find My Peace'
 date = 2024-08-17T13:08:48-04:00
 draft = false
 +++
 
-# Maybe the I Will Find My Peace
+# Maybe Then I Will Find My Peace
 
 I don't think this fire will ever truly burn out.  
 The coals will be banked, yes, but smolder forever.  
