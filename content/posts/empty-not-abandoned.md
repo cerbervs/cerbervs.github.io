@@ -1,7 +1,7 @@
 +++
 title = 'Empty, Not Abandoned'
 date = 2024-08-17T12:52:38-04:00
-draft = true
+draft = false
 +++
 
 # Empty, Not Abandoned

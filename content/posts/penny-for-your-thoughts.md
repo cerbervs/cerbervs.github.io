@@ -1,7 +1,7 @@
 +++
 title = 'Penny for Your Thoughts'
 date = 2024-08-17T12:54:56-04:00
-draft = true
+draft = false
 +++
 
 # Penny for Your Thoughts
