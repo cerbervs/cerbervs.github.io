@@ -2,46 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/posts/</loc>
-    <lastmod>2024-08-17T14:36:18-04:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2024-08-17T14:36:18-04:00</lastmod>
+    <lastmod>2024-08-17T16:23:58-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/about/</loc>
+    <lastmod>2024-08-17T16:23:58-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/a-daydream-of-you/</loc>
+    <lastmod>2024-08-17T15:51:05-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2024-08-17T15:51:05-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/limbo/</loc>
+    <lastmod>2024-08-17T15:48:01-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/stuck/</loc>
     <lastmod>2024-08-17T14:36:18-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/maybe-the-i-will-find-my-peace/</loc>
-    <lastmod>2024-08-17T13:10:16-04:00</lastmod>
+    <loc>//localhost:1313/posts/maybe-then-i-will-find-my-peace/</loc>
+    <lastmod>2024-08-17T13:08:48-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/demagogue/</loc>
-    <lastmod>2024-08-17T13:04:57-04:00</lastmod>
+    <lastmod>2024-08-17T13:03:38-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/penny-for-your-thoughts/</loc>
-    <lastmod>2024-08-17T12:59:39-04:00</lastmod>
+    <lastmod>2024-08-17T12:54:56-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/empty-not-abandoned/</loc>
-    <lastmod>2024-08-17T12:59:39-04:00</lastmod>
+    <lastmod>2024-08-17T12:52:38-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/but-it-feels-just-fine/</loc>
-    <lastmod>2024-08-17T12:57:34-04:00</lastmod>
+    <lastmod>2024-08-17T12:50:01-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/my-moon/</loc>
-    <lastmod>2024-08-17T12:57:34-04:00</lastmod>
+    <lastmod>2024-08-17T12:45:29-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/atlas-sky-reprise/</loc>
-    <lastmod>2024-08-17T12:57:34-04:00</lastmod>
+    <lastmod>2024-08-17T12:41:40-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/if-youd-care-to-talk/</loc>
-    <lastmod>2024-08-17T12:57:34-04:00</lastmod>
+    <lastmod>2024-08-17T12:40:16-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/thin-or-thinning-out/</loc>
-    <lastmod>2024-08-17T12:57:34-04:00</lastmod>
+    <lastmod>2024-08-17T12:17:50-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/clutch/</loc>
-    <lastmod>2024-08-17T12:57:34-04:00</lastmod>
+    <lastmod>2024-08-17T12:11:12-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/series/</loc>
   </url><url>
     <loc>//localhost:1313/tags/</loc>
   </url>

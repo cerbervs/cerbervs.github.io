@@ -5,9 +5,17 @@
     <link>//localhost:1313/</link>
     <description>Recent content on Cerbervs</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 17 Aug 2024 15:51:05 -0400</lastBuildDate>
+    <language>en</language>
+    <copyright>© [Cerbervs](https://github.com/cerbervs) 2024-Present</copyright>
+    <lastBuildDate>Sat, 17 Aug 2024 16:23:58 -0400</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>//localhost:1313/about/</link>
+      <pubDate>Sat, 17 Aug 2024 16:23:58 -0400</pubDate>
+      <guid>//localhost:1313/about/</guid>
+      <description>My name is Mark. I am a poet and a programmer.</description>
+    </item>
     <item>
       <title>A Daydream of You</title>
       <link>//localhost:1313/posts/a-daydream-of-you/</link>

@@ -1,7 +1,7 @@
 baseURL = 'cerbervs.github.io'
 languageCode = 'en-us'
 title = 'Cerbervs'
-theme = "m10c"
+theme = "risotto"
 paginate = 15
 enableGitInfo = true
 [params]
