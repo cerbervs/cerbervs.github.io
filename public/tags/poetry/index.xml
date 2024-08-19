@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Poems on Cerbervs</title>
-    <link>//localhost:1313/poems/</link>
-    <description>Recent content in Poems on Cerbervs</description>
+    <title>Poetry on Cerbervs</title>
+    <link>//localhost:1313/tags/poetry/</link>
+    <description>Recent content in Poetry on Cerbervs</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© [Cerbervs](https://github.com/cerbervs) 2024-Present</copyright>
     <lastBuildDate>Sat, 17 Aug 2024 15:51:05 -0400</lastBuildDate>
-    <atom:link href="//localhost:1313/poems/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/poetry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Daydream of You</title>
-      <link>//localhost:1313/poems/a-daydream-of-you/</link>
+      <link>//localhost:1313/posts/a-daydream-of-you/</link>
       <pubDate>Sat, 17 Aug 2024 15:51:05 -0400</pubDate>
-      <guid>//localhost:1313/poems/a-daydream-of-you/</guid>
+      <guid>//localhost:1313/posts/a-daydream-of-you/</guid>
       <description>As I awoke, glistening white, brittle little flakes were cascading down from a pitchy sky.&#xA;No star adorning the upper reaches of my vision, my eyes were bleary.&#xA;I had found myself in unfamiliar territory again.&#xA;I stood, knees creaking, it being cold around me, of course they would.&#xA;Still sickened from the day that lead me there, to that otherworldly street, empty and silent.&#xA;I looked up from my scuffed boots, and lo!</description>
     </item>
   </channel>

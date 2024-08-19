@@ -2,6 +2,7 @@
 title = 'I Will Carry You as Atlas Carries the Sky (Reprise)'
 date = 2024-08-17T12:41:40-04:00
 draft = false
+weight = 3
 +++
 
 # I Will Carry You as Atlas Carries the Sky (Reprise)

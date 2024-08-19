@@ -1,8 +1,0 @@
-baseURL = 'cerbervs.github.io'
-languageCode = 'en-us'
-title = 'Cerbervs'
-theme = "risotto"
-paginate = 15
-enableGitInfo = true
-[params]
-description = 'A collection of my poetry, copyright © 2024-present by Cerbervs'

@@ -2,6 +2,7 @@
 title = 'Demagogue'
 date = 2024-08-17T13:03:38-04:00
 draft = false
+weight = 2
 +++
 
 # Demagogue

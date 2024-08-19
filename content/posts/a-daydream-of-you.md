@@ -2,6 +2,7 @@
 title = 'A Daydream of You'
 date = 2024-08-17T15:51:05-04:00
 draft = true
+tag = ['poetry']
 +++
 
 As I awoke, glistening white, brittle little flakes were cascading down from a pitchy sky.  
