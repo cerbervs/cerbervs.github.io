@@ -5,8 +5,6 @@ draft = false
 weight = 1
 +++
 
-# Clutch
-
 The addict will drink the sea until it becomes him.  
 And just so, I would let you drown me in your darkest depths.  
 Pull me under and clutch me in your currents, embraced for what would end as eternity.  

@@ -4,8 +4,6 @@ date = 2024-08-17T12:52:38-04:00
 draft = false
 +++
 
-# Empty, Not Abandoned
-
 I am an empty house, not abandoned.  
 But within there is no comfort.  
 Put on display to so many potential buyers, or takers, as it is.  

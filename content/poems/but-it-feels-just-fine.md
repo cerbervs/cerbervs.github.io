@@ -4,8 +4,6 @@ date = 2024-08-17T12:50:01-04:00
 draft = true
 +++
 
-# but it feels just fine
-
 So it begins. Here, now, in this car. Window rolled down.  
 Cold air brushing my cheeks with it's snowy fingers.  
 But it feels just fine.  

@@ -4,8 +4,6 @@ date = 2024-08-17T13:08:48-04:00
 draft = false
 +++
 
-# Maybe Then I Will Find My Peace
-
 I don't think this fire will ever truly burn out.  
 The coals will be banked, yes, but smolder forever.  
 There's no letting this go completely. No way to forget you.  

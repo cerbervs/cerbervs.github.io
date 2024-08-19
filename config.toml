@@ -54,10 +54,22 @@ url = "https://github.com/cerbervs"
 [menu]
 
 [[menu.main]]
+identifier = "poems"
+name = "Poems"
+url = "/poems/"
+weight = 10
+
+[[menu.main]]
+identifier = "code"
+name = "Code"
+url = "/code/"
+weight = 11
+
+[[menu.main]]
 identifier = "about"
 name = "About"
 url = "/about/"
-weight = 10
+weight = 12
 
 [taxonomies]
 category = "categories"

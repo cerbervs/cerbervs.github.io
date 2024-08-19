@@ -4,8 +4,6 @@ date = 2024-08-17T12:17:50-04:00
 draft = false
 +++
 
-# Thin. Or, Thinning Out
-
 I've been feeling thin lately  
 or  
 thinning out, I'm not sure.

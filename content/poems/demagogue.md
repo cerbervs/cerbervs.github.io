@@ -5,8 +5,6 @@ draft = false
 weight = 2
 +++
 
-# Demagogue
-
 I want you to fall for me, as if you slipped at the top of ten flights of stairs.  
 Like you tried to grab the rungs for the banister, desperately clutched at them, only to realize they are slick with something and you can't get a grip.  
 Sliding down the stairs, wooden, no carpeting, just hard edges to knock the breath from your body.  

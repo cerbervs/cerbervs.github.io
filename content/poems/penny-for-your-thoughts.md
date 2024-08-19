@@ -4,8 +4,6 @@ date = 2024-08-17T12:54:56-04:00
 draft = false
 +++
 
-# Penny for Your Thoughts
-
 Penny for your thoughts, love.  
 Let's spill our guts out across the floor, wielding short blades of blood-blackened steel.  
 Ancient and sharp, carried between our teeth.  

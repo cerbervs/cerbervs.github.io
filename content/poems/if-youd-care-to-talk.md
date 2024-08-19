@@ -5,8 +5,6 @@ draft = false
 weight = 4
 +++
 
-# If You'd Care to Talk
-
 Please use my name when you address me.  
 I will hear all the words you speak, again, when the time comes to lay my head down.  
 It sounds so delicate, wrapped gently in your voice.  

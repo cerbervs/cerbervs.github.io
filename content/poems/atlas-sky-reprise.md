@@ -5,8 +5,6 @@ draft = false
 weight = 3
 +++
 
-# I Will Carry You as Atlas Carries the Sky (Reprise)
-
 We will be the salt of the earth at the end of days.  
 Returned from dust, to dust.  
 Made from ash, molded by fire, and flame.  

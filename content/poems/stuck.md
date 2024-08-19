@@ -4,8 +4,6 @@ date = 2024-08-17T14:36:18-04:00
 draft = false
 +++
 
-# Stuck
-
 Here I am, between my rock and a hard place.  
 I cannot even struggle to free myself.  
 This weight won't let up.

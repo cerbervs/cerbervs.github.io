@@ -4,8 +4,6 @@ date = 2024-08-17T12:45:29-04:00
 draft = false
 +++
 
-# My Moon
-
 If I am the sea, and you are my Moon,  
 then I shall flow and ebb,  
 and swell and crash,  
