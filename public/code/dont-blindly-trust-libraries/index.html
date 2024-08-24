@@ -87,21 +87,19 @@ our application. We have a number of documents that are 300mm long and contain a
 lot of text. Bounding boxes, back-side bleed-through, elements of the form,
 large sprawling signatures, color; all of these add up to a sizable image file.
 In testing, most of these images ended up being around 12-13MB.</p>
-<p>Obviously this is a problem for using Textract. Cue the need for a solution to
-making the images smaller before transferring them to Textract. We discussed
-several solutions to this problem, ultimately leading to us with no clear
-answers.</p>
+<p>Obviously this is a problem when using Textract. *Cue the need for a solution to
+making the images smaller before transferring.* We discussed
+several ideas, ultimately leading to no clear answers before testing.</p>
 <p>Textract specifically recommends a DPI of 300 for optimal processing. This is,
-frankly, a huge DPI for a document that is 300mm long, and factored into our
+frankly, huge for a document that is 300mm long, and factored into our
 decisions. First we discussed compressing the image in the hopes that it would
-reduce the file size, but this was quickly shot down by my senior dev who believes,
-as do I, that we would be sacrificing a lot of valid text since we would ultimately
-be blurring the text and possibly introducing artifacts. We also discussed
-converting the image to gray scale and thresholding it to black and white, then
-de-noising the resulting image. Finally, we discussed reducing the DPI of the
-image as a last resort, but my suspicion is that we would be an unfavorable
-solution to the problem given Textract&rsquo;s specific recommendation.</p>
-<p>The package implements a function called <code>getImageData</code> that is called when
+reduce the file size, but we would be sacrificing a lot of valid text since we
+ultimately would be blurring the text and possibly introducing artifacts. We
+also discussed converting the image to gray scale and thresholding it to black
+and white, then de-noising the resulting image. Finally, we discussed reducing
+the DPI of the image as a last resort, but my suspicion is that we would be an
+unfavorable solution to the problem given Textract&rsquo;s specific recommendation.</p>
+<p>The package in question implements a function called <code>getImageData</code> that is called when
 saving a page of the PDF as an image.
 Here is a code snippet of that implementation:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getImageData</span>(<span style="color:#a6e22e">string</span> $pathToImage, <span style="color:#a6e22e">int</span> $pageNumber)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Imagick</span>

@@ -46,23 +46,21 @@ lot of text. Bounding boxes, back-side bleed-through, elements of the form,
 large sprawling signatures, color; all of these add up to a sizable image file.
 In testing, most of these images ended up being around 12-13MB.
 
-Obviously this is a problem for using Textract. Cue the need for a solution to
-making the images smaller before transferring them to Textract. We discussed
-several solutions to this problem, ultimately leading to us with no clear
-answers.
+Obviously this is a problem when using Textract. \*Cue the need for a solution to
+making the images smaller before transferring.\* We discussed
+several ideas, ultimately leading to no clear answers before testing.
 
 Textract specifically recommends a DPI of 300 for optimal processing. This is,
-frankly, a huge DPI for a document that is 300mm long, and factored into our
+frankly, huge for a document that is 300mm long, and factored into our
 decisions. First we discussed compressing the image in the hopes that it would
-reduce the file size, but this was quickly shot down by my senior dev who believes,
-as do I, that we would be sacrificing a lot of valid text since we would ultimately
-be blurring the text and possibly introducing artifacts. We also discussed
-converting the image to gray scale and thresholding it to black and white, then
-de-noising the resulting image. Finally, we discussed reducing the DPI of the
-image as a last resort, but my suspicion is that we would be an unfavorable
-solution to the problem given Textract's specific recommendation.
+reduce the file size, but we would be sacrificing a lot of valid text since we
+ultimately would be blurring the text and possibly introducing artifacts. We
+also discussed converting the image to gray scale and thresholding it to black
+and white, then de-noising the resulting image. Finally, we discussed reducing
+the DPI of the image as a last resort, but my suspicion is that we would be an
+unfavorable solution to the problem given Textract's specific recommendation.
 
-The package implements a function called `getImageData` that is called when
+The package in question implements a function called `getImageData` that is called when
 saving a page of the PDF as an image.
 Here is a code snippet of that implementation:
 
