@@ -54,7 +54,125 @@
         <h1>Don&rsquo;t Blindly Trust Libraries</h1>
     </header>
     <div class="content__body">
-        
+        <h2 id="what-was-i-doing-in-the-first-place">What was I doing in the first place?</h2>
+<p>To give you a little background on this issue, first I have to mention that
+this is a work project. We do all of our development in PHP, and use many
+libraries. All of these libraries are reviewed by my senior
+dev or our team lead. We&rsquo;ve had a lot of success in narrowing down which
+packages really fit our use case, and picking high quality packages.
+But, inevitably, something was bound to slip through the review process.</p>
+<p>This project is a document classification system. It uses text extracted via
+AWS Textract to power a custom algorithm for fingerprinting documents and then
+classifying. It takes in <em>either</em> a PDF with any number of pages or a single JPEG.
+If it receives a PDF, it takes each page in order, converts it to a JPEG, and
+then sends that to Textract. If it receives a JPEG, it sends that to Textract
+without modification.
+It&rsquo;s a pretty nifty project, but there have been a number of challenges along
+the way.</p>
+<h2 id="the-package">The Package</h2>
+<p>The package in question is one we have had in the project for a while, but have
+used very little. I won&rsquo;t name it, but I will tell you that it&rsquo;s a package for
+converting PDFs to images. It&rsquo;s a solid package, even if I don&rsquo;t resonate with
+some of the overall design decisions.</p>
+<p>This particular package uses ImageMagick behind the scenes to convert the PDF.
+ImageMagick is a powerful tool, and has a ton of options for converting between
+different formats, resizing, and compressing images, among many, many other
+functions. So many, in fact, that ImageMagick has a tendency to be complex and
+usually requires a lot of trial and error to get a particular process right.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>One of the challenges we faced is the file size limit on synchronous Textract calls
+that transfer image data. The limit is 10MB, which, one would think would
+be sufficient, they&rsquo;re just JPEGs after all. It turns out that&rsquo;s not the case in
+our application. We have a number of documents that are 300mm long and contain a
+lot of text. Bounding boxes, back-side bleed-through, elements of the form,
+large sprawling signatures, color; all of these add up to a sizable image file.
+In testing, most of these images ended up being around 12-13MB.</p>
+<p>Obviously this is a problem for using Textract. Cue the need for a solution to
+making the images smaller before transferring them to Textract. We discussed
+several solutions to this problem, ultimately leading to us with no clear
+answers.</p>
+<p>Textract specifically recommends a DPI of 300 for optimal processing. This is,
+frankly, a huge DPI for a document that is 300mm long, and factored into our
+decisions. First we discussed compressing the image in the hopes that it would
+reduce the file size, but this was quickly shot down by my senior dev who believes,
+as do I, that we would be sacrificing a lot of valid text since we would ultimately
+be blurring the text and possibly introducing artifacts. We also discussed
+converting the image to gray scale and thresholding it to black and white, then
+de-noising the resulting image. Finally, we discussed reducing the DPI of the
+image as a last resort, but my suspicion is that we would be an unfavorable
+solution to the problem given Textract&rsquo;s specific recommendation.</p>
+<p>The package implements a function called <code>getImageData</code> that is called when
+saving a page of the PDF as an image.
+Here is a code snippet of that implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getImageData</span>(<span style="color:#a6e22e">string</span> $pathToImage, <span style="color:#a6e22e">int</span> $pageNumber)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Imagick</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         * Reinitialize imagick because the target resolution must be set
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         * before reading the actual image.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         */</span>
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Imagick</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setResolution</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resolution</span>, $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resolution</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">colorspace</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setColorspace</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">colorspace</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">compressionQuality</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setCompressionQuality</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">compressionQuality</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">readImage</span>(<span style="color:#a6e22e">sprintf</span>(<span style="color:#e6db74">&#39;%s[%s]&#39;</span>, $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">filename</span>, $pageNumber <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resizeWidth</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resizeImage</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resizeWidth</span>, $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resizeHeight</span> <span style="color:#f92672">??</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">Imagick</span><span style="color:#f92672">::</span><span style="color:#a6e22e">FILTER_POINT</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">layerMethod</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">LayerMethod</span><span style="color:#f92672">::</span><span style="color:#a6e22e">None</span>) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span> <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">mergeImageLayers</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">layerMethod</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">thumbnailWidth</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">thumbnailImage</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">thumbnailWidth</span>, $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">thumbnailHeight</span> <span style="color:#f92672">??</span> <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setFormat</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">determineOutputFormat</span>($pathToImage)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">imagick</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>As you can see, here the package is using <code>setCompressionQuality()</code>. Guess what
+doesn&rsquo;t work? That&rsquo;s right, <code>setCompressionQuality()</code>. Here is an excerpt from
+the docs on <a href="https://www.php.net/manual/en/imagick.setcompressionquality.php">php.net</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Caution
+</span></span><span style="display:flex;"><span>This method only works for new images e.g. those created through Imagick::newPseudoImage. For existing images you should use Imagick::setImageCompressionQuality().
+</span></span></code></pre></div><p>Since this image is being read from a file, and not created by Imagick,
+<code>setCompressionQuality()</code> function isn&rsquo;t applicable here.</p>
+<h2 id="the-solution">The Solution</h2>
+<p>The first thing I tried, before I even discussed anything with the team, was to
+increase the compression to 80% of the original image. The function for this
+when using ImageMagick (<code>imagick</code> in PHP land) is either:</p>
+<ol>
+<li><code>setCompressionQuality()</code></li>
+<li><code>setImageCompressionQuality()</code></li>
+</ol>
+<p>So, I patched the file, and tried again using <code>setImageCompressionQuality()</code> and
+voila! It worked.</p>
+<p>At the end of the day, after much testing had been done and a long team conversation
+had been had, I ended up settling on the following solution:</p>
+<ol>
+<li>Convert the image to grayscale.</li>
+<li>Threshold the image to black and white.</li>
+<li>De-noise the image.</li>
+</ol>
+<p>This method of processing leaves the DPI of the image unchanged and leaves the
+image uncompressed and free of artificial artifacts and blurring. It also leaves
+pages in a state where they are normalized, but can be stored as is,
+without the need to store the original image for reconstructing a PDF on the other
+end of the system. This was the most optimal solution for our use case.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The moral of the story: Don&rsquo;t blindly trust libraries. Always read the docs and review
+the code as much as possible.</p>
+
     </div>
     <footer class="content__footer"></footer>
 
