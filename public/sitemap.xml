@@ -15,21 +15,33 @@
     <lastmod>2024-08-17T12:40:16-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2024-08-17T16:23:58-04:00</lastmod>
+    <lastmod>2024-08-24T10:22:01-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/code/</loc>
+    <lastmod>2024-08-24T10:22:01-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/code/go-cmd-input-output/</loc>
+    <lastmod>2024-08-24T10:22:01-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/code/dont-blindly-trust-libraries/</loc>
+    <lastmod>2024-08-24T10:21:58-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/php/</loc>
+    <lastmod>2024-08-24T10:21:58-04:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
+    <lastmod>2024-08-24T10:21:58-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/about/</loc>
     <lastmod>2024-08-17T16:23:58-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/poems/a-daydream-of-you/</loc>
-    <lastmod>2024-08-17T15:51:05-04:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/poems/</loc>
     <lastmod>2024-08-17T15:51:05-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/poetry/</loc>
+    <loc>//localhost:1313/poems/a-daydream-of-you/</loc>
     <lastmod>2024-08-17T15:51:05-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>//localhost:1313/tags/poetry/</loc>
     <lastmod>2024-08-17T15:51:05-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/poems/limbo/</loc>
@@ -57,8 +69,6 @@
     <lastmod>2024-08-17T12:17:50-04:00</lastmod>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
-  </url><url>
-    <loc>//localhost:1313/code/</loc>
   </url><url>
     <loc>//localhost:1313/series/</loc>
   </url>

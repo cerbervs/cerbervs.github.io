@@ -20,7 +20,7 @@ extended = true
 noindex = false
 
 [params.theme]
-palette = "gruvbox-dark"
+palette = "dracula"
 
 # Sidebar: about/bio
 [params.about]
@@ -54,16 +54,16 @@ url = "https://github.com/cerbervs"
 [menu]
 
 [[menu.main]]
-identifier = "poems"
-name = "Poems"
-url = "/poems/"
-weight = 10
-
-[[menu.main]]
 identifier = "code"
 name = "Code"
 url = "/code/"
 weight = 11
+
+[[menu.main]]
+identifier = "poems"
+name = "Poems"
+url = "/poems/"
+weight = 10
 
 [[menu.main]]
 identifier = "about"

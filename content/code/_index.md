@@ -3,4 +3,4 @@ title = "Code"
 draft = false
 +++
 
-Code posts coming soon
+Musings on code and code related things

@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Code on Cerbervs</title>
-    <link>//localhost:1313/code/</link>
-    <description>Recent content in Code on Cerbervs</description>
+    <title>Php on Cerbervs</title>
+    <link>//localhost:1313/tags/php/</link>
+    <description>Recent content in Php on Cerbervs</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© [Cerbervs](https://github.com/cerbervs) 2024-Present</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 10:22:01 -0400</lastBuildDate>
-    <atom:link href="//localhost:1313/code/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Go `os/exec` Input and Output</title>
-      <link>//localhost:1313/code/go-cmd-input-output/</link>
-      <pubDate>Sat, 24 Aug 2024 10:22:01 -0400</pubDate>
-      <guid>//localhost:1313/code/go-cmd-input-output/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Sat, 24 Aug 2024 10:21:58 -0400</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Don&#39;t Blindly Trust Libraries</title>
       <link>//localhost:1313/code/dont-blindly-trust-libraries/</link>
