@@ -14,7 +14,7 @@
       <link>//localhost:1313/code/dont-blindly-trust-libraries/</link>
       <pubDate>Sat, 24 Aug 2024 10:21:58 -0400</pubDate>
       <guid>//localhost:1313/code/dont-blindly-trust-libraries/</guid>
-      <description></description>
+      <description>What was I doing in the first place? To give you a little background on this issue, first I have to mention that this is a work project. We do all of our development in PHP, and use many libraries. All of these libraries are reviewed by my senior dev or our team lead. We&amp;rsquo;ve had a lot of success in narrowing down which packages really fit our use case, and picking high quality packages.</description>
     </item>
   </channel>
 </rss>
