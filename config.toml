@@ -44,7 +44,7 @@ url = "https://www.linkedin.com/in/mark-bailey-8717a6b2"
 [[params.socialLinks]]
 icon = "fa-brands fa-git-alt"
 title = "Gitea"
-url = "https://gitea.com/CerbervsSoft"
+url = "https://git.markbailey.dev/cerbervs"
 
 [[params.socialLinks]]
 icon = "fa-brands fa-github"
